@@ -1,103 +1,81 @@
-<html>
-<head>
-<title>LocationAdapter.java</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
-.ln { color: #999999; font-weight: normal; font-style: normal; }
-.s0 { color: rgb(0,0,128); font-weight: bold; }
-.s1 { color: rgb(0,0,0); }
-.s2 { color: rgb(128,128,128); font-style: italic; }
-.s3 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
-.s4 { color: rgb(0,0,255); }
-</style>
-</head>
-<BODY BGCOLOR="#ffffff">
-<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
-<TR><TD><CENTER>
-<FONT FACE="Arial, Helvetica" COLOR="#000000">
-LocationAdapter.java</FONT>
-</center></TD></TR></TABLE>
-<pre>
-<span class="s0">package </span><span class="s1">com.example.android.miwok; 
- 
-</span><span class="s0">import </span><span class="s1">android.app.Activity; 
-</span><span class="s0">import </span><span class="s1">android.support.annotation.NonNull; 
-</span><span class="s0">import </span><span class="s1">android.support.annotation.Nullable; 
-</span><span class="s0">import </span><span class="s1">android.support.v4.content.ContextCompat; 
-</span><span class="s0">import </span><span class="s1">android.view.LayoutInflater; 
-</span><span class="s0">import </span><span class="s1">android.view.View; 
-</span><span class="s0">import </span><span class="s1">android.view.ViewGroup; 
-</span><span class="s0">import </span><span class="s1">android.widget.ArrayAdapter; 
-</span><span class="s0">import </span><span class="s1">android.widget.ImageView; 
-</span><span class="s0">import </span><span class="s1">android.widget.TextView; 
- 
-</span><span class="s0">import </span><span class="s1">java.util.ArrayList; 
- 
-</span><span class="s0">public class </span><span class="s1">LocationAdapter </span><span class="s0">extends </span><span class="s1">ArrayAdapter&lt;Location&gt; { 
- 
-    </span><span class="s2">/** 
-     * Resource ID for the background color for this list of words 
-     */</span><span class="s1"> 
-    </span><span class="s0">private int </span><span class="s1">mColorResourceId; 
- 
-    </span><span class="s2">/** 
-     * This is our own custom constructor. 
-     * The context is used to inflate the layout file, and the List is the data we want 
-     * to populate into the lists 
-     * 
-     * </span><span class="s3">@param </span><span class="s2">context The current context. Used to inflate the layout file. 
-     * </span><span class="s3">@param </span><span class="s2">locations   A List of Location objects to display in a list. 
-     */</span><span class="s1"> 
-    </span><span class="s0">public </span><span class="s1">LocationAdapter(Activity context, ArrayList&lt;Location&gt; locations, </span><span class="s0">int </span><span class="s1">colorResourceId) { 
-        </span><span class="s0">super</span><span class="s1">(context, </span><span class="s4">0</span><span class="s1">, locations); 
-        mColorResourceId = colorResourceId; 
-    } 
- 
-    @Override 
-    </span><span class="s0">public </span><span class="s1">View getView(</span><span class="s0">int </span><span class="s1">position, @Nullable View convertView, @NonNull ViewGroup parent) { 
-        </span><span class="s2">// Check if the existing view is being reused, otherwise inflate the view</span><span class="s1"> 
-        View listItemView = convertView; 
-        </span><span class="s0">if </span><span class="s1">(listItemView == </span><span class="s0">null</span><span class="s1">) { 
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, </span><span class="s0">false</span><span class="s1">); 
-        } 
- 
-        </span><span class="s2">// Get the {@link Location} object located at this position in the list</span><span class="s1"> 
-        Location currentLocation = getItem(position); 
- 
-        </span><span class="s2">// Find the TextView in the list_item.xml layout with the ID name_text_view</span><span class="s1"> 
-        TextView nameTextView = (TextView) listItemView.findViewById(R.id.name_text_view); 
-        </span><span class="s2">// Get the name from the current Location object and</span><span class="s1"> 
-        </span><span class="s2">// set this text on the name_text_view TextView</span><span class="s1"> 
-        nameTextView.setText(currentLocation.getLocationName()); 
- 
-        </span><span class="s2">// Find the TextView in the list_item.xml layout with the ID address_text_view</span><span class="s1"> 
-        TextView addressTextView = (TextView) listItemView.findViewById(R.id.address_text_view); 
-        </span><span class="s2">// Get the address from the current Location object and</span><span class="s1"> 
-        </span><span class="s2">// set this text on the address_text_view TextView</span><span class="s1"> 
-        addressTextView.setText(currentLocation.getLocationAddress()); 
- 
-        </span><span class="s2">// Find the TextView in the list_item.xml layout with the ID phone_text_view</span><span class="s1"> 
-        TextView phoneTextView = (TextView) listItemView.findViewById(R.id.phone_text_view); 
-        </span><span class="s2">// Get the phone number from the current Location object and</span><span class="s1"> 
-        </span><span class="s2">// set this text on the phone_text_view TextView</span><span class="s1"> 
-        phoneTextView.setText(currentLocation.getLocationPhone()); 
- 
-        </span><span class="s2">// Find the ImageView in the list_item.xml layout with the ID image</span><span class="s1"> 
-        ImageView imageView = (ImageView) listItemView.findViewById(R.id.image); 
-        </span><span class="s2">// Set the ImageView to the image resource specified in the current Location</span><span class="s1"> 
-        imageView.setImageResource(currentLocation.getImageResourceId()); 
- 
-        </span><span class="s2">// Set the color for the list item</span><span class="s1"> 
-        View textContainer = listItemView.findViewById(R.id.text_container); 
-        </span><span class="s2">// Find the color resource ID maps to</span><span class="s1"> 
-        </span><span class="s0">int </span><span class="s1">color = ContextCompat.getColor(getContext(), mColorResourceId); 
-        </span><span class="s2">// Set the background color of the text container View</span><span class="s1"> 
-        textContainer.setBackgroundColor(color); 
- 
-        </span><span class="s2">// Return the whole list item layout (containing 2 text views)</span><span class="s1"> 
-        </span><span class="s2">// so that it can be shown in the ListView</span><span class="s1"> 
-        </span><span class="s0">return </span><span class="s1">listItemView; 
-    } 
-}</span></pre>
-</body>
-</html>
+package com.example.android.miwok;
+
+import android.app.Activity;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
+public class LocationAdapter extends ArrayAdapter<Location> {
+
+    /**
+     * Resource ID for the background color for this list of words
+     */
+    private int mColorResourceId;
+
+    /**
+     * This is our own custom constructor.
+     * The context is used to inflate the layout file, and the List is the data we want
+     * to populate into the lists
+     *
+     * @param context The current context. Used to inflate the layout file.
+     * @param locations   A List of Location objects to display in a list.
+     */
+    public LocationAdapter(Activity context, ArrayList<Location> locations, int colorResourceId) {
+        super(context, 0, locations);
+        mColorResourceId = colorResourceId;
+    }
+
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        // Check if the existing view is being reused, otherwise inflate the view
+        View listItemView = convertView;
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+        }
+
+        // Get the {@link Location} object located at this position in the list
+        Location currentLocation = getItem(position);
+
+        // Find the TextView in the list_item.xml layout with the ID name_text_view
+        TextView nameTextView = (TextView) listItemView.findViewById(R.id.name_text_view);
+        // Get the name from the current Location object and
+        // set this text on the name_text_view TextView
+        nameTextView.setText(currentLocation.getLocationName());
+
+        // Find the TextView in the list_item.xml layout with the ID address_text_view
+        TextView addressTextView = (TextView) listItemView.findViewById(R.id.address_text_view);
+        // Get the address from the current Location object and
+        // set this text on the address_text_view TextView
+        addressTextView.setText(currentLocation.getLocationAddress());
+
+        // Find the TextView in the list_item.xml layout with the ID phone_text_view
+        TextView phoneTextView = (TextView) listItemView.findViewById(R.id.phone_text_view);
+        // Get the phone number from the current Location object and
+        // set this text on the phone_text_view TextView
+        phoneTextView.setText(currentLocation.getLocationPhone());
+
+        // Find the ImageView in the list_item.xml layout with the ID image
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
+        // Set the ImageView to the image resource specified in the current Location
+        imageView.setImageResource(currentLocation.getImageResourceId());
+
+        // Set the color for the list item
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        // Find the color resource ID maps to
+        int color = ContextCompat.getColor(getContext(), mColorResourceId);
+        // Set the background color of the text container View
+        textContainer.setBackgroundColor(color);
+
+        // Return the whole list item layout (containing 2 text views)
+        // so that it can be shown in the ListView
+        return listItemView;
+    }
+}
