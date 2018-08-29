@@ -1,91 +1,69 @@
-<html>
-<head>
-<title>Location.java</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
-.ln { color: #999999; font-weight: normal; font-style: normal; }
-.s0 { color: rgb(0,0,128); font-weight: bold; }
-.s1 { color: rgb(0,0,0); }
-.s2 { color: rgb(128,128,128); font-style: italic; }
-.s3 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
-</style>
-</head>
-<BODY BGCOLOR="#ffffff">
-<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
-<TR><TD><CENTER>
-<FONT FACE="Arial, Helvetica" COLOR="#000000">
-Location.java</FONT>
-</center></TD></TR></TABLE>
-<pre>
-<span class="s0">package </span><span class="s1">com.example.android.miwok; 
- 
-</span><span class="s2">/** 
- * {</span><span class="s3">@Link </span><span class="s2">Location} represents a location that the user wants to visit. 
- * It contains a name, address, phone number, and image for each location. 
- */</span><span class="s1"> 
-</span><span class="s0">public class </span><span class="s1">Location { 
- 
-    </span><span class="s2">/** 
-     * Name of the location 
-     */</span><span class="s1"> 
-    </span><span class="s0">private </span><span class="s1">String mLocationName; 
-    </span><span class="s2">/** 
-     * Address of location 
-     */</span><span class="s1"> 
-    </span><span class="s0">private </span><span class="s1">String mLocationAddress; 
-    </span><span class="s2">/** 
-     * Phone number of location 
-     */</span><span class="s1"> 
-    </span><span class="s0">private </span><span class="s1">String mLocationPhone; 
- 
-    </span><span class="s2">/** 
-     * drawable resource ID associated with location 
-     */</span><span class="s1"> 
-    </span><span class="s0">private int </span><span class="s1">mImageResourceId; 
- 
-    </span><span class="s2">/** 
-     * Create a Location object with image 
-     * 
-     * </span><span class="s3">@param </span><span class="s2">locationName is the name of the location 
-     * </span><span class="s3">@param </span><span class="s2">locationAddress is the address of the location 
-     * </span><span class="s3">@param </span><span class="s2">locationPhone is the phone number of the location 
-     * </span><span class="s3">@param </span><span class="s2">imageResourceId is the drawable resource ID associated with the location 
-     */</span><span class="s1"> 
-    </span><span class="s0">public </span><span class="s1">Location(String locationName, String locationAddress, String locationPhone, </span><span class="s0">int </span><span class="s1">imageResourceId) { 
-        mLocationName = locationName; 
-        mLocationAddress = locationAddress; 
-        mLocationPhone = locationPhone; 
-        mImageResourceId = imageResourceId; 
-    } 
- 
-    </span><span class="s2">/** 
-     * Get the name of the location 
-     */</span><span class="s1"> 
-    </span><span class="s0">public </span><span class="s1">String getLocationName() { 
-        </span><span class="s0">return </span><span class="s1">mLocationName; 
-    } 
- 
-    </span><span class="s2">/** 
-     * Get the address of the location 
-     */</span><span class="s1"> 
-    </span><span class="s0">public </span><span class="s1">String getLocationAddress() { 
-        </span><span class="s0">return </span><span class="s1">mLocationAddress; 
-    } 
- 
-    </span><span class="s2">/** 
-     * Get the phone number of the location 
-     */</span><span class="s1"> 
-    </span><span class="s0">public </span><span class="s1">String getLocationPhone() { 
-        </span><span class="s0">return </span><span class="s1">mLocationPhone; 
-    } 
- 
-    </span><span class="s2">/** 
-     * Get the image resource ID of the location 
-     */</span><span class="s1"> 
-    </span><span class="s0">public int </span><span class="s1">getImageResourceId() { 
-        </span><span class="s0">return </span><span class="s1">mImageResourceId; 
-    } 
-} 
-</span></pre>
-</body>
-</html>
+package com.example.android.miwok;
+
+/**
+ * {@Link Location} represents a location that the user wants to visit.
+ * It contains a name, address, phone number, and image for each location.
+ */
+public class Location {
+
+    /**
+     * Name of the location
+     */
+    private String mLocationName;
+    /**
+     * Address of location
+     */
+    private String mLocationAddress;
+    /**
+     * Phone number of location
+     */
+    private String mLocationPhone;
+
+    /**
+     * drawable resource ID associated with location
+     */
+    private int mImageResourceId;
+
+    /**
+     * Create a Location object with image
+     *
+     * @param locationName is the name of the location
+     * @param locationAddress is the address of the location
+     * @param locationPhone is the phone number of the location
+     * @param imageResourceId is the drawable resource ID associated with the location
+     */
+    public Location(String locationName, String locationAddress, String locationPhone, int imageResourceId) {
+        mLocationName = locationName;
+        mLocationAddress = locationAddress;
+        mLocationPhone = locationPhone;
+        mImageResourceId = imageResourceId;
+    }
+
+    /**
+     * Get the name of the location
+     */
+    public String getLocationName() {
+        return mLocationName;
+    }
+
+    /**
+     * Get the address of the location
+     */
+    public String getLocationAddress() {
+        return mLocationAddress;
+    }
+
+    /**
+     * Get the phone number of the location
+     */
+    public String getLocationPhone() {
+        return mLocationPhone;
+    }
+
+    /**
+     * Get the image resource ID of the location
+     */
+    public int getImageResourceId() {
+        return mImageResourceId;
+    }
+}
