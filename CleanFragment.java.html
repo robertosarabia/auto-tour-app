@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>CleanFragment.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+CleanFragment.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com.example.android.miwok; 
+ 
+</span><span class="s0">import </span><span class="s1">android.location.Location; 
+</span><span class="s0">import </span><span class="s1">android.os.Bundle; 
+</span><span class="s0">import </span><span class="s1">android.support.v4.app.Fragment; 
+</span><span class="s0">import </span><span class="s1">android.view.LayoutInflater; 
+</span><span class="s0">import </span><span class="s1">android.view.View; 
+</span><span class="s0">import </span><span class="s1">android.view.ViewGroup; 
+</span><span class="s0">import </span><span class="s1">android.widget.ListView; 
+ 
+</span><span class="s0">import </span><span class="s1">java.util.ArrayList; 
+ 
+</span><span class="s2">/** 
+ * A simple {</span><span class="s3">@link </span><span class="s2">Fragment} subclass. 
+ */</span><span class="s1"> 
+</span><span class="s0">public class </span><span class="s1">CleanFragment </span><span class="s0">extends </span><span class="s1">Fragment { 
+ 
+    </span><span class="s0">public </span><span class="s1">CleanFragment() { 
+        </span><span class="s2">// Required empty public constructor</span><span class="s1"> 
+    } 
+ 
+    @Override 
+    </span><span class="s0">public </span><span class="s1">View onCreateView(LayoutInflater inflater, ViewGroup container, 
+                             Bundle savedInstanceState) { 
+        View rootView = inflater.inflate(R.layout.location_list, container, </span><span class="s0">false</span><span class="s1">); 
+ 
+        </span><span class="s2">// Create a list of locations</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">ArrayList&lt;Location&gt; locations = </span><span class="s0">new </span><span class="s1">ArrayList&lt;Location&gt;(); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;Detail Maniac&quot;</span><span class="s1">, </span><span class="s4">&quot;6320 Belleau Wood Ln Ste 3 Sacramento, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 304-2929&quot;</span><span class="s1">, R.drawable.ic_bubble_chart)); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;Hayes Detail&quot;</span><span class="s1">, </span><span class="s4">&quot;1876 Stockton Blvd Sacramento, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 719-7759&quot;</span><span class="s1">, R.drawable.ic_bubble_chart)); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;JR Auto Detailing&quot;</span><span class="s1">, </span><span class="s4">&quot;2520 Walnut Ave Carmichael, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 488-1541&quot;</span><span class="s1">, R.drawable.ic_bubble_chart)); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;Pavilion Car Care&quot;</span><span class="s1">, </span><span class="s4">&quot;2334 Fair Oaks Blvd Sacramento, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 925-8533&quot;</span><span class="s1">, R.drawable.ic_bubble_chart)); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;House of Bling Bling&quot;</span><span class="s1">, </span><span class="s4">&quot;2520 Northgate Blvd Sacramento, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 649-0334&quot;</span><span class="s1">, R.drawable.ic_bubble_chart)); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;Kelly’s Express Car Wash&quot;</span><span class="s1">, </span><span class="s4">&quot;7664 Stockton Blvd Sacramento, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 688-7090&quot;</span><span class="s1">, R.drawable.ic_bubble_chart)); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;Quick Quack Car Wash&quot;</span><span class="s1">, </span><span class="s4">&quot;1609 Watt Ave Sacramento, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 760-8701&quot;</span><span class="s1">, R.drawable.ic_bubble_chart)); 
+ 
+        </span><span class="s2">// Create an {@link LocationAdapter}, whose data source is a list of {@link Location}s. The</span><span class="s1"> 
+        </span><span class="s2">// adapter knows how to create list items for each item in the list.</span><span class="s1"> 
+        LocationAdapter adapter = </span><span class="s0">new </span><span class="s1">LocationAdapter(getActivity(), locations, R.color.category_clean); 
+ 
+        </span><span class="s2">// Find the {@link ListView} object in the view hierarchy of the {@link Activity}.</span><span class="s1"> 
+        </span><span class="s2">// There should be a {@link ListView} with the view ID called list, which is declared in the</span><span class="s1"> 
+        </span><span class="s2">// word_list.xml file.</span><span class="s1"> 
+        ListView listView = (ListView) rootView.findViewById(R.id.list); 
+ 
+        </span><span class="s2">// Make the {@link ListView} use the {@link WordAdapter} created above, so that the</span><span class="s1"> 
+        </span><span class="s2">// {@link ListView} will display list items for each {@link Word} in the list.</span><span class="s1"> 
+        listView.setAdapter(adapter); 
+ 
+        </span><span class="s0">return </span><span class="s1">rootView; 
+    } 
+}</span></pre>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>AudioFragment.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+AudioFragment.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com.example.android.miwok; 
+ 
+</span><span class="s0">import </span><span class="s1">android.location.Location; 
+</span><span class="s0">import </span><span class="s1">android.os.Bundle; 
+</span><span class="s0">import </span><span class="s1">android.support.v4.app.Fragment; 
+</span><span class="s0">import </span><span class="s1">android.view.LayoutInflater; 
+</span><span class="s0">import </span><span class="s1">android.view.View; 
+</span><span class="s0">import </span><span class="s1">android.view.ViewGroup; 
+</span><span class="s0">import </span><span class="s1">android.widget.ListView; 
+ 
+</span><span class="s0">import </span><span class="s1">java.util.ArrayList; 
+ 
+</span><span class="s2">/** 
+ * A simple {</span><span class="s3">@link </span><span class="s2">Fragment} subclass. 
+ */</span><span class="s1"> 
+</span><span class="s0">public class </span><span class="s1">AudioFragment </span><span class="s0">extends </span><span class="s1">Fragment { 
+ 
+    </span><span class="s0">public </span><span class="s1">AudioFragment() { 
+        </span><span class="s2">// Required empty public constructor</span><span class="s1"> 
+    } 
+ 
+    @Override 
+    </span><span class="s0">public </span><span class="s1">View onCreateView(LayoutInflater inflater, ViewGroup container, 
+                             Bundle savedInstanceState) { 
+        View rootView = inflater.inflate(R.layout.location_list, container, </span><span class="s0">false</span><span class="s1">); 
+ 
+        </span><span class="s2">// Create a list of locations</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">ArrayList&lt;Location&gt; locations = </span><span class="s0">new </span><span class="s1">ArrayList&lt;Location&gt;(); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;ML Audio&quot;</span><span class="s1">, </span><span class="s4">&quot;3523 Kiessig Ave. Ste H Sacramento, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 392-9892&quot;</span><span class="s1">, R.drawable.ic_volume_up)); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;Audio Solutions&quot;</span><span class="s1">, </span><span class="s4">&quot;857 Jefferson Blvd West Sacramento, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 371-9111&quot;</span><span class="s1">, R.drawable.ic_volume_up)); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;Arden Audio&quot;</span><span class="s1">, </span><span class="s4">&quot;2735 Arden Way Sacramento, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 971-0830&quot;</span><span class="s1">, R.drawable.ic_volume_up)); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;Rolling Soundz&quot;</span><span class="s1">, </span><span class="s4">&quot;5825 Madison Ave Sacramento, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 344-4266&quot;</span><span class="s1">, R.drawable.ic_volume_up)); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;Mike’s Sound Solutions&quot;</span><span class="s1">, </span><span class="s4">&quot;8950 Elk Grove Blvd Elk Grove, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 685-1300&quot;</span><span class="s1">, R.drawable.ic_volume_up)); 
+        locations.add(</span><span class="s0">new </span><span class="s1">Location(</span><span class="s4">&quot;Pacific Audio&quot;</span><span class="s1">, </span><span class="s4">&quot;2270 Arden Way Sacramento, CA&quot;</span><span class="s1">, </span><span class="s4">&quot;(916) 927-4300&quot;</span><span class="s1">, R.drawable.ic_volume_up)); 
+ 
+        </span><span class="s2">// Create an {@link LocationAdapter}, whose data source is a list of {@link Location}s. The</span><span class="s1"> 
+        </span><span class="s2">// adapter knows how to create list items for each item in the list.</span><span class="s1"> 
+        LocationAdapter adapter = </span><span class="s0">new </span><span class="s1">LocationAdapter(getActivity(), locations, R.color.category_audio); 
+ 
+        </span><span class="s2">// Find the {@link ListView} object in the view hierarchy of the {@link Activity}.</span><span class="s1"> 
+        </span><span class="s2">// There should be a {@link ListView} with the view ID called list, which is declared in the</span><span class="s1"> 
+        </span><span class="s2">// word_list.xml file.</span><span class="s1"> 
+        ListView listView = (ListView) rootView.findViewById(R.id.list); 
+ 
+        </span><span class="s2">// Make the {@link ListView} use the {@link WordAdapter} created above, so that the</span><span class="s1"> 
+        </span><span class="s2">// {@link ListView} will display list items for each {@link Word} in the list.</span><span class="s1"> 
+        listView.setAdapter(adapter); 
+ 
+        </span><span class="s0">return </span><span class="s1">rootView; 
+    } 
+}</span></pre>
+</body>
+</html>

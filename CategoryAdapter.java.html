@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>CategoryAdapter.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
+.s4 { color: rgb(0,0,255); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+CategoryAdapter.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com.example.android.miwok; 
+ 
+</span><span class="s0">import </span><span class="s1">android.content.Context; 
+</span><span class="s0">import </span><span class="s1">android.support.v4.app.Fragment; 
+</span><span class="s0">import </span><span class="s1">android.support.v4.app.FragmentManager; 
+</span><span class="s0">import </span><span class="s1">android.support.v4.app.FragmentPagerAdapter; 
+ 
+</span><span class="s2">/** 
+ * {</span><span class="s3">@link </span><span class="s2">CategoryAdapter} is a {</span><span class="s3">@link </span><span class="s2">FragmentPagerAdapter} that can provide the layout for 
+ * each list item based on a data source which is a list of {</span><span class="s3">@link </span><span class="s2">Location} objects. 
+ */</span><span class="s1"> 
+</span><span class="s0">public class </span><span class="s1">CategoryAdapter </span><span class="s0">extends </span><span class="s1">FragmentPagerAdapter { 
+ 
+    </span><span class="s2">/** 
+     * Context of the app 
+     */</span><span class="s1"> 
+    </span><span class="s0">private </span><span class="s1">Context mContext; 
+ 
+    </span><span class="s2">/** 
+     * Create a new {</span><span class="s3">@link </span><span class="s2">CategoryAdapter} object. 
+     * 
+     * </span><span class="s3">@param </span><span class="s2">context is the context of the app 
+     * </span><span class="s3">@param </span><span class="s2">fm      is the fragment manager that will keep each fragment's state in the adapter 
+     *                across swipes. 
+     */</span><span class="s1"> 
+    </span><span class="s0">public </span><span class="s1">CategoryAdapter(Context context, FragmentManager fm) { 
+        </span><span class="s0">super</span><span class="s1">(fm); 
+        mContext = context; 
+    } 
+ 
+    </span><span class="s2">/** 
+     * Return the {</span><span class="s3">@link </span><span class="s2">Fragment} that should be displayed for the given page number. 
+     */</span><span class="s1"> 
+    @Override 
+    </span><span class="s0">public </span><span class="s1">Fragment getItem(</span><span class="s0">int </span><span class="s1">position) { 
+        </span><span class="s0">if </span><span class="s1">(position == </span><span class="s4">0</span><span class="s1">) { 
+            </span><span class="s0">return new </span><span class="s1">AudioFragment(); 
+        } </span><span class="s0">else if </span><span class="s1">(position == </span><span class="s4">1</span><span class="s1">) { 
+            </span><span class="s0">return new </span><span class="s1">CleanFragment(); 
+        } </span><span class="s0">else if </span><span class="s1">(position == </span><span class="s4">2</span><span class="s1">) { 
+            </span><span class="s0">return new </span><span class="s1">GlassFragment(); 
+        } </span><span class="s0">else </span><span class="s1">{ 
+            </span><span class="s0">return new </span><span class="s1">BodyFragment(); 
+        } 
+    } 
+ 
+    </span><span class="s2">/** 
+     * Return the total number of pages. 
+     */</span><span class="s1"> 
+    @Override 
+    </span><span class="s0">public int </span><span class="s1">getCount() { 
+        </span><span class="s0">return </span><span class="s4">4</span><span class="s1">; 
+    } 
+ 
+    @Override 
+    </span><span class="s0">public </span><span class="s1">CharSequence getPageTitle(</span><span class="s0">int </span><span class="s1">position) { 
+        </span><span class="s0">if </span><span class="s1">(position == </span><span class="s4">0</span><span class="s1">) { 
+            </span><span class="s0">return </span><span class="s1">mContext.getString(R.string.category_audio); 
+        } </span><span class="s0">else if </span><span class="s1">(position == </span><span class="s4">1</span><span class="s1">) { 
+            </span><span class="s0">return </span><span class="s1">mContext.getString(R.string.category_clean); 
+        } </span><span class="s0">else if </span><span class="s1">(position == </span><span class="s4">2</span><span class="s1">) { 
+            </span><span class="s0">return </span><span class="s1">mContext.getString(R.string.category_glass); 
+        } </span><span class="s0">else </span><span class="s1">{ 
+            </span><span class="s0">return </span><span class="s1">mContext.getString(R.string.category_body); 
+        } 
+    } 
+}</span></pre>
+</body>
+</html>
